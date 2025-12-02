@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <title>THYNE – AI-Personalised Jewellery | Thyne.ai</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="description"
+        content="THYNE — AI-powered personalised jewellery. Customise stones, metals and finishes. Preview instantly, then complete your order on Thyne.ai." />
+
+    <link rel="canonical" href="https://thyne.ai" />
+    <link rel="stylesheet" href="css/styles.css" />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+        href="https://fonts.googleapis.com/css2?family=EB+Garamond:wght@500;600;700&family=Lato:wght@400;500;600;700&display=swap"
+        rel="stylesheet" />
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header class="site-header glass">
+        <div class="container header-inner">
+            <div class="logo">THYNE</div>
+
+            <nav class="main-nav">
+                <a href="index.html" class="nav-link active">Home</a>
+                <a href="wholesale.html" class="nav-link">Wholesale</a>
+                <a href="articles.html" class="nav-link">Articles</a>
+                <a href="about.html" class="nav-link">About</a>
+            </nav>
+
+            <div class="header-cta">
+                <a href="https://thyne.ai" class="btn primary">Launch Thyne.ai →</a>
+            </div>
+        </div>
+    </header>
+
+
+    <!-- HERO -->
+    <section id="hero" class="section hero">
+        <div class="container hero-inner">
+
+            <!-- LEFT: IMAGE -->
+            <div class="hero-image-wrap">
+                <img id="ring-image" src="assets/renders/elqan_wg_em_di_1.png" alt="Customisable THYNE ring"
+                    class="hero-ring-image" />
+            </div>
+
+            <!-- RIGHT: CONTROLS -->
+            <div class="hero-controls glass">
+
+                <h1 class="display-xl">
+                    AI-personalised jewellery.
+                </h1>
+
+                <p class="body-lg">
+                    Choose your stones, metal and finish.
+                    Preview instantly, then continue on Thyne.ai.
+                </p>
+
+                <!-- METAL -->
+                <div class="selector-group">
+                    <div class="selector-label">Metal</div>
+
+                    <div class="selector-pills">
+                        <button class="pill" data-metal="yg" onclick="selectMetal(event)">Yellow Gold</button>
+                        <button class="pill" data-metal="rg" onclick="selectMetal(event)">Rose Gold</button>
+                        <button class="pill selected" data-metal="wg" onclick="selectMetal(event)">White Gold</button>
+                        <button class="pill" data-metal="bg" onclick="selectMetal(event)">Black Gold</button>
+                    </div>
+                </div>
+
+                <!-- ACCENT STONE A -->
+                <div class="selector-group">
+                    <div class="selector-label">Accent Stone A</div>
+
+                    <div class="selector-pills">
+                        <button class="pill" data-stone-a="di" onclick="selectStoneA(event)">Diamond</button>
+                        <button class="pill selected" data-stone-a="em" onclick="selectStoneA(event)">Emerald</button>
+                        <button class="pill" data-stone-a="ga" onclick="selectStoneA(event)">Garnet</button>
+                        <button class="pill" data-stone-a="lt" onclick="selectStoneA(event)">London Blue Topaz</button>
+                        <button class="pill" data-stone-a="sa" onclick="selectStoneA(event)">Sapphire</button>
+                    </div>
+                </div>
+
+                <!-- ACCENT STONE B -->
+                <div class="selector-group">
+                    <div class="selector-label">Accent Stone B</div>
+
+                    <div class="selector-pills">
+                        <button class="pill" data-stone-b="br" onclick="selectStoneB(event)">Brown Diamond</button>
+                        <button class="pill" data-stone-b="bu" onclick="selectStoneB(event)">Blue Diamond</button>
+                        <button class="pill selected" data-stone-b="di" onclick="selectStoneB(event)">Diamond</button>
+                        <button class="pill" data-stone-b="em" onclick="selectStoneB(event)">Emerald</button>
+                        <button class="pill" data-stone-b="ru" onclick="selectStoneB(event)">Ruby</button>
+                        <button class="pill" data-stone-b="sa" onclick="selectStoneB(event)">Sapphire</button>
+                    </div>
+                </div>
+
+                <div class="hero-cta-row">
+                    <a href="https://thyne.ai" class="btn primary">
+                        Continue on Thyne.ai →
+                    </a>
+                    <p class="caption-md">Real-time preview. 120+ combinations.</p>
+                </div>
+
+            </div>
+
+        </div>
+    </section>
+
+    <!-- AI PERSONALISATION -->
+    <section class="section ai-section">
+        <div class="container ai-inner">
+
+            <h2 class="heading-lg text-center">
+                Need deeper personalisation?
+            </h2>
+
+            <p class="body-md text-center ai-copy">
+                Sketch, describe or upload inspiration.
+                thyne.ai transforms it into a manufacturable design.
+            </p>
+
+            <div class="ai-video-placeholder glass">
+                <span class="play-icon">▶</span>
+                <p class="caption-md">AI to jewellery – concept to CAD</p>
+            </div>
+
+            <div class="ai-cta">
+                <a href="https://thyne.ai" class="btn secondary">
+                    Create with AI on thyne.ai
+                </a>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- HOW IT WORKS -->
+    <section class="section how-section">
+        <div class="container">
+
+            <h2 class="heading-lg">How THYNE works</h2>
+
+            <div class="how-grid">
+                <article class="card glass">
+                    <h3 class="heading-sm">Explore → Choose → Order</h3>
+                    <p class="body-sm">
+                        Browse curated designs, select stone + metal combinations and place your order.
+                    </p>
+                </article>
+
+                <article class="card glass">
+                    <h3 class="heading-sm">Explore → Modify → Order</h3>
+                    <p class="body-sm">
+                        Start from a base design, tweak it your way and finalise it.
+                    </p>
+                </article>
+
+                <article class="card glass">
+                    <h3 class="heading-sm">AI Chat → Create → Finalise</h3>
+                    <p class="body-sm">
+                        Chat with AI, generate a unique piece, preview pricing and finalise.
+                    </p>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- GALLERY -->
+    <section class="section gallery-section">
+        <div class="container">
+
+            <h2 class="heading-lg">Curated designs & collections</h2>
+
+            <p class="body-md gallery-copy">
+                A glimpse of what’s possible when personalisation meets precision.
+            </p>
+
+            <div class="gallery-grid">
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Orbit Ring</h3>
+                    <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Eclipse Band</hh3>
+                        <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Halo Pendant</h3>
+                    <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Nova Bracelet</h3>
+                    <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Solitaire Line</h3>
+                    <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+                <article class="gallery-card glass">
+                    <div class="gallery-img"></div>
+                    <h3 class="heading-xs">Celeste Stack</h3>
+                    <p class="caption-md">View on Thyne.ai</p>
+                </article>
+
+            </div>
+        </div>
+    </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="site-footer glass">
+        <div class="container footer-inner">
+
+            <div class="footer-cols">
+
+                <div class="footer-col">
+                    <div class="footer-title">Jewellery</div>
+                    <a href="#hero" class="footer-link">Explore</a>
+                    <a href="#hero" class="footer-link">Personalise</a>
+                    <a href="https://thyne.ai" class="footer-link">AI Create</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-title">Company</div>
+                    <a href="about.html" class="footer-link">About</a>
+                    <a href="wholesale.html" class="footer-link">Wholesale</a>
+                    <a href="about.html#contact" class="footer-link">Contact</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-title">Legal</div>
+                    <a href="#" class="footer-link">Privacy</a>
+                    <a href="#" class="footer-link">Terms</a>
+                    <a href="#" class="footer-link">Refund</a>
+                </div>
+
+                <div class="footer-col">
+                    <div class="footer-title">Community</div>
+                    <a href="https://instagram.com" class="footer-link">Instagram</a>
+                    <a href="https://wa.me/91XXXXXXXXXX" class="footer-link">WhatsApp</a>
+                    <a href="https://pinterest.com" class="footer-link">Pinterest</a>
+                </div>
+
+            </div>
+
+            <div class="footer-bottom glass-bar">
+                <p class="caption-md">Experience the full platform on Thyne.ai</p>
+                <a href="https://thyne.ai" class="btn primary btn-sm">
+                    Launch Thyne.ai →
+                </a>
+            </div>
+
+        </div>
+    </footer>
+
+    <script src="js/main.js"></script>
+</body>
+
+</html>
