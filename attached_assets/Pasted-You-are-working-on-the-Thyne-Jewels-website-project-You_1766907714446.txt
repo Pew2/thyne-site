@@ -1,0 +1,185 @@
+You are working on the Thyne Jewels website project.
+Your task is to cleanly complete, optimize, and make the site production-ready for Apple Developer approval.
+Follow instructions strictly. Do not invent business logic beyond what is specified.
+
+1. Responsive Navigation (High Priority)
+
+Fix the mobile navigation.
+
+On small screens, the hamburger (burger) icon must:
+
+Be visible
+
+Open a dropdown or slide menu
+
+Show links for:
+
+Home
+
+Wholesale
+
+Journal
+
+About
+
+Ensure navigation works correctly across:
+
+Mobile
+
+Tablet
+
+Desktop
+
+No broken or hidden menu items at any screen size.
+
+2. Footer Redesign (Replace existing footer completely)
+
+Create a 4-column footer with the following structure:
+
+Column 1: Company
+
+Thyne Jewels Pvt. Ltd.
+
+Address:
+G5-1406, Eros Sampoornam, Sector-2, 
+Patwari, Gautam Buddha Nagar- 201307, 
+Uttar Pradesh, India
+
+Column 2: Company Links
+
+Home
+
+Wholesale
+
+Journal
+
+About Us
+
+(All links must work)
+
+Column 3: Legal
+
+Terms of Service (new page)
+
+Privacy Policy (new page)
+
+Privacy Policy must state:
+
+No direct user data collection on this website
+
+WhatsApp interaction is user-initiated
+
+Third-party platforms govern their own data
+
+Column 4: Contact
+
+Email: care@thynejewels.com
+
+Phone: +91 92116 33503
+
+WhatsApp: click-to-chat link
+https://wa.me/+919211633503
+
+Social links (add/remove/update):
+
+[add]Facebook: https://www.facebook.com/thyne.fb
+[edit]Instagram: https://www.instagram.com/thyne.ai
+[add]LinkedIn: https://www.linkedin.com/company/thyne
+remove-whatsapp, pinterest
+
+Footer must be:
+
+Responsive
+
+Clean
+
+Fully clickable
+
+No dead links
+
+3. Journal Section (Critical)
+
+Keep the Journal section enabled.
+
+On the Journal listing page:
+
+Show article cards with image, title, short excerpt.
+
+When a user clicks an article:
+
+Open a dedicated article page
+
+OR expand inline below the card (acceptable fallback)
+
+Create at least 2–3 sample articles with:
+
+Title
+
+Body text (300–500 words, placeholder content is fine)
+
+No article should lead to a dead end or blank page.
+
+4. Images & Videos Handling
+
+If any component currently shows an empty image or video:
+
+Replace with neutral placeholder visuals (jewellery / abstract / lifestyle).
+
+Use:
+
+Public placeholder sources (e.g. Unsplash/Pexels), OR
+
+Local placeholder assets (e.g. /assets/placeholder.jpg)
+
+Clearly structure code so assets can be replaced later.
+
+Do not leave empty media blocks.
+
+5. Link Behavior Rules (Very Important)
+
+Every clickable link on the site must do one of the following:
+
+Redirect to https://thyne.ai
+
+Open WhatsApp chat (https://wa.me/[NUMBER])
+
+Open internal pages (Home, Journal, Article, About, Privacy, Terms)
+
+Open social media links
+
+❌ No button or link should do nothing
+❌ No “coming soon” dead clicks
+
+6. Legal Pages
+
+Create these pages:
+
+/privacy-policy
+
+/terms-of-service
+
+Use simple, clear language. No commerce, no payments, no refunds, no cancellations.
+
+7. General Quality Requirements
+
+Fully responsive across screen sizes
+
+All screen size optimised poperly
+
+No horizontal scroll
+
+All text readable on mobile
+
+All CTAs clickable
+
+No console errors
+
+8. Do NOT do the following
+
+Do not add payment flows
+
+Do not add login/signup
+
+Do not add analytics unless already present
+
+Do not invent backend APIs
