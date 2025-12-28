@@ -245,10 +245,12 @@ function initMobileMenu() {
     
     if (!toggle || !nav) return;
 
-    toggle.addEventListener("click", () => {
-        nav.classList.toggle("active");
+    toggle.addEventListener("click", (e) => {
+        e.stopPropagation();
+        const isActive = nav.classList.toggle("active");
         toggle.classList.toggle("active");
         document.body.classList.toggle("menu-open");
+        toggle.setAttribute('aria-expanded', isActive);
     });
 
     // Close menu when clicking links
@@ -258,6 +260,17 @@ function initMobileMenu() {
             toggle.classList.remove("active");
             document.body.classList.remove("menu-open");
         });
+    });
+
+    // Close menu when clicking outside
+    document.addEventListener('click', (e) => {
+        if (nav.classList.contains('active') && 
+            !nav.contains(e.target) && 
+            !toggle.contains(e.target)) {
+            nav.classList.remove('active');
+            toggle.classList.remove('active');
+            document.body.classList.remove('menu-open');
+        }
     });
 }
 
@@ -269,12 +282,20 @@ function initJournal() {
     const journalGrid = document.querySelector(".articles-grid");
     if (!journalGrid) return;
 
-    journalGrid.addEventListener("click", (e) => {
-        const card = e.target.closest(".article-card");
-        if (!card) return;
+    // Use event delegation for Read Article buttons
+    document.addEventListener("click", (e) => {
+        const readBtn = e.target.closest(".btn-read-article");
+        if (readBtn) {
+            e.preventDefault();
+            const card = readBtn.closest(".article-card");
+            if (card) {
+                expandCard(card);
+            }
+        }
+    });
 
-        // If it's already expanded, we might want to toggle or do nothing
-        // For now, let's implement a simple inline expansion
+    function expandCard(card) {
+        // If it's already expanded, close it
         const existingDetail = card.querySelector(".article-detail");
         
         if (existingDetail) {
@@ -297,9 +318,9 @@ function initJournal() {
                 <h2 class="heading-lg">${title}</h2>
                 <p class="subheading">${category}</p>
                 <div class="body-md text-muted">
-                    <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                    <p>Curabitur pretium tincidunt lacus. Nulla gravida orci a odio. Nullam varius, turpis et commodo pharetra, est eros bibendum elit, nec luctus magna felis sollicitudin mauris. Integer in mauris eu nibh euismod gravida. Duis ac tellus et risus vulputate vehicula. Donec lobortis risus a elit. Etiam tempor. Ut ullamcorper, ligula eu tempor congue, eros est euismod turpis, id tincidunt sapien risus a quam. Maecenas fermentum consequat mi. Donec fermentum. Pellentesque malesuada nulla a mi. Duis sapien sem, aliquet nec, commodo eget, consequat quis, neque. Aliquam faucibus, elit ut dictum aliquet, felis nisl adipiscing sapien, sed malesuada diam lacus eget erat. Cras mollis scelerisque nunc. Donec vehicula cursus purus. Mauris ut tellus. Sed non quam. Suspendisse potenti.</p>
-                    <p>Sed dignissim lacinia nunc. Curabitur tortor. Pellentesque nibh. Aenean quam. In scelerisque sem at dolor. Maecenas mattis. Sed convallis tristique sem. Proin ut ligula vel nunc egestas porttitor. Morbi lectus risus, iaculis vel, suscipit quis, luctus non, massa. Fusce ac turpis quis ligula lacinia aliquet. Mauris ipsum. Nulla metus metus, ullamcorper vel, tincidunt sed, euismod in, nibh. Quisque volutpat condimentum velit. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nam nec ante. Sed lacinia, urna non tincidunt mattis, tortor neque adipiscing diam, a cursus ipsum ante quis turpis. Nulla facilisi. Ut fringilla. Suspendisse potenti. Nunc feugiat mi a tellus consequat imperdiet. Vestibulum sapien. Proin quam. Etiam ultrices. Suspendisse in justo eu magna luctus suscipit. Sed lectus. Integer euismod lacus luctus magna. Quisque cursus, metus vitae pharetra auctor, sem massa mattis sem, at interdum magna augue eget diam. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Morbi lacinia molestie dui. Praesent blandit dolor. Sed non quam. In vel mi sit amet augue congue elementum. Morbi in ipsum sit amet pede facilisis laoreet. Donec lacus nunc, viverra nec, blandit vel, egestas et, augue. Vestibulum tincidunt malesuada tellus. Ut ultrices ultrices enim. Curabitur sit amet mauris. Morbi in dui quis est pulvinar ullamcorper. Nulla facilisi. Integer lacinia sollicitudin massa. Cras metus. Sed aliquet risus a tortor. Integer id quam. Morbi mi. Quisque nisl felis, venenatis tristique, dignissim in, ultrices sit amet, augue. Proin sodales libero eget ante.</p>
+                    <p>At THYNE, we believe that jewellery should be as unique as the individual wearing it. This piece explores the intersection of traditional craftsmanship and modern personalisation techniques.</p>
+                    <p>Our design philosophy is rooted in the idea of "Quiet Luxury" — where the value lies in the details that only the wearer truly knows. Whether it's a specific stone choice that holds personal meaning or a custom engraving that tells a story, every element is considered.</p>
+                    <p>In this collection, we've focused on fluid lines and ergonomic shapes that feel natural against the skin. We use only the finest materials, from ethically sourced stones to high-purity metals, ensuring that your personalised piece remains a timeless treasure for generations to come.</p>
                 </div>
                 <button class="btn secondary mt-md close-detail">Close Article</button>
             </div>
@@ -316,7 +337,16 @@ function initJournal() {
 
         // Trigger reveal
         setTimeout(() => detail.classList.add("visible"), 10);
-    });
+        
+        // Scroll to the card
+        const headerOffset = 100;
+        const elementPosition = card.getBoundingClientRect().top;
+        const offsetPosition = elementPosition + window.pageYOffset - headerOffset;
+        window.scrollTo({
+            top: offsetPosition,
+            behavior: "smooth"
+        });
+    }
 }
 
 // =========================================================
