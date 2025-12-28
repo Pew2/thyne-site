@@ -1406,10 +1406,37 @@ button {
 }
 
 .gallery-img {
-    aspect-ratio: 1;
-    background: linear-gradient(135deg, var(--platinum-500) 0%, var(--platinum-700) 100%);
-    position: relative;
-    overflow: hidden;
+    aspect-ratio: 16 / 9;
+    width: 150%;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 12px;
+}
+
+
+.gallery-img.orbit-ring {
+    background-image: url("../assets/images/home-gallery/orbit-ring.jpg");
+}
+
+.gallery-img.eclipse-band {
+    background-image: url("../assets/images/home-gallery/eclipse-band.jpg");
+}
+
+.gallery-img.halo-pendant {
+    background-image: url("../assets/images/home-gallery/halo-pendant.jpg");
+}
+
+.gallery-img.nova-bracelet {
+    background-image: url("../assets/images/home-gallery/nova-bracelet.jpg");
+}
+
+.gallery-img.solitaire-line {
+    background-image: url("../assets/images/home-gallery/solitaire-line.jpg");
+}
+
+.gallery-img.celeste-stack {
+    background-image: url("../assets/images/home-gallery/celeste-stack.jpg");
 }
 
 .gallery-img::after {
