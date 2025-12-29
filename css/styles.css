@@ -1903,13 +1903,15 @@ button {
         gap: var(--space-lg);
     }
 
+    /* ✅ Content on top */
     .hero-content {
+        grid-row: 1;
         max-width: 100%;
-        order: 2;
     }
 
+    /* ✅ Ring below */
     .hero-customizer {
-        order: 1;
+        grid-row: 2;
     }
 
     .hero-subtitle {
